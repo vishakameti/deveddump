@@ -3,6 +3,7 @@ public with sharing class AccountController {
     @AuraEnabled
 
     public static List<Account> findAll(){
+        //new comment
         
         return [ SELECT id, name, Location__Latitude__s, Location__Longitude__s
             FROM Account
