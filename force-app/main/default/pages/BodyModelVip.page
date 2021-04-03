@@ -1,0 +1,92 @@
+<apex:page controller="BodyModelVip" sidebar="false" >
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+<script>
+
+$(document).ready(function(){
+
+    $("[id$='createvip']").click(function() {
+                alert('in vis');
+            });  
+});
+
+            
+
+</script>
+
+                          <br></br>
+            <h1 style="Margin:0 0 0 5%"> VIP Proposal has been created for the below FAN.</h1>
+            <br></br>
+
+                                    <br></br>
+<apex:form >
+  <apex:pageBlock >
+
+     <apex:pageBlockSection >
+      
+
+
+
+          
+          <apex:pageBlockTable value="{!propGet}" var="a" >
+                 
+                  <apex:column value="{!a.FAN__c}"/>
+                 <apex:column value="{!a.Model_Year__c}"/>  
+                  <apex:column value="{!a.Grid_Level__c}"/>
+                  <apex:column value="{!a.FAN_Type__c}"/>
+                  <apex:column value="{!a.Prepared_By__c}"/>
+<!--                  <apex:column value="{!a.Prepared_For__c}"/> -->
+                  <apex:column value="{!a.Account_Name__r.Name}"/>
+                  
+                  
+                 
+                 </apex:pageBlockTable>   
+
+     </apex:pageBlockSection>
+      <apex:pageblockButtons location="bottom" >    
+      <apex:commandButton value="Add BodyModels to VIP" action="{!showsec}" id="createvip1" reRender="Showhide"/>
+
+      <apex:commandButton value="Generate Proposal Letter"/>
+      </apex:pageblockButtons>   
+  </apex:pageBlock>
+  <apex:outputPanel id="Showhide">
+  <apex:pageBlock title="BodyModels" rendered="{!Showhide}">
+         <apex:pageBlockSection >
+                <apex:inputField value="{!BMlist.Body_Model_Code__c}" /> 
+             <apex:inputField required="true" value="{!BMlist.Model_Year__c}" />
+             <apex:inputField required="true" value="{!BMlist.Incentive_Amount__c}" />
+             <div id="vis">
+     <apex:commandButton value="Create" Action="{!Create}" id="createvip" status="myStatus" reRender="BMreq"/>
+             </div>
+           <apex:actionStatus startText="(processing...)" stopText="" id="myStatus" />﻿
+         </apex:pageBlockSection>
+  </apex:pageBlock>
+  </apex:outputpanel>
+ 
+  
+  </apex:form>
+  <apex:outputPanel id="BMreq">
+  <apex:pageBlock title="Body Models in Request" >
+  <apex:outputText value="{!noBmtext}" rendered="{!noBM}" >  </apex:outputText>
+<apex:pageBlockSection showHeader="true" collapsible="true" rendered="{!bmRender}">
+                 
+                 <apex:pageBlockTable value="{!BMget}" var="a" >
+                 
+
+                  <apex:column value="{!a.Model_Year__c}"/>
+
+                  
+                  <apex:column value="{!a.Body_Model_Code__c}"/>
+                  <apex:column value="{!a.Brand__c}"/>
+                  <apex:column value="{!a.BM_Description__c}"/>
+                  <apex:column value="{!a.Incentive_Amount__c}"/>
+                  <apex:column value="{!a.Status__c}"/>
+               
+                  
+                  
+                 
+                 </apex:pageBlockTable>
+                 
+                </apex:pageBlockSection>
+</apex:pageBlock>
+  </apex:outputPanel>
+</apex:page>

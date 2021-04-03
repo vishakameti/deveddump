@@ -1,0 +1,97 @@
+<apex:page controller="mapinmap_ctrl">
+
+{!oppmap}
+{!cols}
+<!--<apex:form >
+        
+        <apex:pageBlock >
+        <apex:pageBlockSection columns="1">
+           <apex:pageBlockTable value="{!oppmap}" var="main">
+        
+
+            <apex:column value="{!main}" headerValue="Lead Source"/>
+
+
+             <!--<apex:repeat value="{!oppmap[main]}" var="inner"> 
+                 <apex:column headerValue="{!inner}">
+                     {!oppmap[main][inner]}
+                 </apex:column>
+             </apex:repeat>           
+             <apex:repeat value="{!cols}" var="c">
+             
+                <apex:column headervalue="{!c}">
+                     {!oppmap[main][c]}                
+                </apex:column>
+             </apex:repeat>
+        </apex:pageBlockTable>
+        </apex:pageblockSection>
+    </apex:pageBlock>
+
+
+</apex:form> 
+
+         <apex:form >
+                 
+                 <table>
+                                             
+                      <tr>
+                      <apex:repeat value="{!oppmap}" var="key1">
+
+                             <td>
+                                  {!oppmap[key1]}
+                             </td>
+                       </apex:repeat>
+                        </tr>
+                      <apex:repeat value="{!oppmap}" var="key1">
+                      
+                        
+                        <tr>
+                        
+                            
+                             <td>
+                              {!key1}
+                             </td>
+                        </tr>
+                       <!-- <tr>
+                          <apex:repeat value="{!oppmap[key1]}" var="key2">
+                           
+                           <td>
+                           {!oppmap[key1]}
+                           </td>
+                           
+                           <td>
+                           {!oppmap[key1][key2]}
+                           </td>
+                          </apex:repeat>
+                       </tr>
+                       </apex:repeat> 
+                       
+                       
+                 </table>
+         
+         
+         </apex:form> -->
+
+
+
+
+
+              <apex:form >
+                            <apex:pageBlock >
+                                      <apex:pageblockTable value="{!oppmap}" var="key1">
+                                      
+                                      <apex:column >
+                                      <apex:repeat value="{!oppmap}[key1]}" var="key2">
+
+                                                  {!oppmap}[key1][key2]}
+                                      
+                                      </apex:repeat>
+                                      </apex:column>
+                                      
+                                      </apex:pageblockTable>
+                            </apex:pageBlock>
+              
+              </apex:form>
+
+
+</apex:page>

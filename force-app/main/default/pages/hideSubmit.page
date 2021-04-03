@@ -1,0 +1,12 @@
+<apex:page >
+<style type="text/css">
+
+    input.btn[name="piSubmit"] {
+       display :none;
+    }
+    
+    
+    }
+    
+</style>
+</apex:page>

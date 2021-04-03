@@ -1,0 +1,18 @@
+<apex:page Controller="par2childmap1_ctrl">
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  
+  <apex:form >
+     <apex:pageblock >
+           <apex:pageblocktable value="{!accmap}" var="a">
+                 <apex:column value="{!a}"/>
+                 <apex:column headervalue="Total records" value="{!accmap[a]}"/>
+                 
+           </apex:pageblocktable>
+     </apex:pageblock>
+  </apex:form>
+
+  
+
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

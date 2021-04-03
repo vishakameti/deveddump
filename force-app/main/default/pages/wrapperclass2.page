@@ -1,0 +1,38 @@
+<apex:page controller="wrapperclass2">
+
+<apex:form >
+<apex:pageBlock >
+
+<apex:pageblockSection >
+   
+     <apex:pageblockTable value="{!wrapList}" var="b" >
+       <apex:column >
+       <apex:inputCheckbox value="{!b.Selected}"/>
+       </apex:column>
+       <apex:column value="{!b.acc.Name}" />
+       <apex:column value="{!b.acc.BillingCity}" />
+       <apex:column value="{!b.acc.AccountNumber}" />
+     </apex:pageblockTable>
+       
+
+</apex:pageblockSection>
+<apex:pageblockButtons location="Bottom" >
+<apex:commandButton action="{!processSelected}" value="process Selected" rerender="vis" />
+</apex:pageblockButtons>
+</apex:pageBlock>
+
+<apex:outputPanel id="vis">
+<apex:pageblock rendered="{!showit}">
+    <apex:pageblockSection >
+        <apex:pageblockTable value="{!selectedAccounts}" var="c">
+       <apex:column value="{!c.Name}" />
+       <apex:column value="{!c.BillingCity}" />
+       <apex:column value="{!c.AccountNumber}" />
+
+        </apex:pageblockTable>
+    </apex:pageblockSection>
+</apex:pageblock>
+</apex:outputPanel>
+
+</apex:form>
+</apex:page>

@@ -1,0 +1,6 @@
+<apex:page standardcontroller="Account" sidebar="false" showQuickActionVfHeader="true">
+     
+     <apex:detail subject="{!account.id}" relatedlist="false" title="false"/>
+
+      <apex:relatedList list="opportunities"/>
+</apex:page>

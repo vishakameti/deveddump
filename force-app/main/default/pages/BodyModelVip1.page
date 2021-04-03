@@ -1,0 +1,16 @@
+<apex:page Controller="BodyModelVip1">
+<apex:form >
+<apex:pageBlock >
+ <apex:pageBlockSection >
+ 
+      <apex:inputField value="{!BMlist.Body_Model_Code__c}" /> 
+             <apex:inputField required="true" value="{!BMlist.Model_Year__c}" />
+             <apex:inputField value="{!BMlist.Incentive_Amount__c}" />
+     <apex:commandButton value="Create" Action="{!Create}"/>
+ 
+ </apex:pageBlockSection>
+
+</apex:pageBlock>
+    
+</apex:form>
+</apex:page>

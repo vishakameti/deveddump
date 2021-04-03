@@ -1,0 +1,7 @@
+<apex:page controller="test1">
+    <apex:form >
+    Username : <apex:inputText />     
+    </apex:form>
+    
+    hi
+</apex:page>

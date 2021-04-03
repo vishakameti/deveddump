@@ -1,0 +1,16 @@
+<apex:Page controller="test1">
+    <apex:form >
+       <apex:Outputpanel id="Panel1">
+        <apex:PageBlock title="Block1" id="Block1">
+            <apex:OutputLabel value="{!IsShown}"/>
+            <apex:commandButton action="{!showBlock2}" value="open" disabled="{!IsShown}" rerender="Panel2"/>
+        </apex:PageBlock>
+       </apex:Outputpanel>
+       <apex:OutputPanel id="Panel2">
+        <apex:PageBlock title="Block2" id="Block2" rendered="{!IsShown}" >
+            <apex:OutputLabel value="{!IsShown}"/>
+            <apex:commandButton action="{!closeBlock2}" value="close" onclick="return confirm('Are you sure?');" rerender="Panel1, Panel2"/>
+        </apex:PageBlock>
+       </apex:Outputpanel>
+    </apex:form>
+</apex:Page>

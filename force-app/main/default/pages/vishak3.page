@@ -1,0 +1,22 @@
+<apex:page standardController="account" recordSetVar="acc" >
+
+     <apex:form >
+     
+        <apex:pageBlock >
+        
+            <apex:pageBlockTable value="{!acc}" var="a">
+            
+              <apex:column value="{!a.name}"/>
+              
+                <apex:column headerValue="Created date" >
+   <apex:outputText value=" {0,date,mmmddyyyy}">
+    <apex:param value="{!a.CreatedDate}"/>
+</apex:outputText>
+            </apex:column>
+<!--                <apex:column value="{!a.createddate}"/> -->
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+     
+     </apex:form>
+
+</apex:page>

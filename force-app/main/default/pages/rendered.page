@@ -1,0 +1,23 @@
+<apex:page controller="render" >
+     <apex:form >
+
+
+      <apex:outputPanel id="vishak">
+     <apex:pageBlock rendered="{!value}" >
+     
+       <apex:pageblockSection >
+       
+       Hello
+       
+
+       </apex:pageblockSection>
+     
+     </apex:pageBlock>
+</apex:outputPanel>
+
+
+<apex:commandButton action="{!action2}" value="show"  reRender="vishak"/>   
+<apex:commandButton action="{!action3}" value="hide"  reRender="vishak"/> 
+
+     </apex:form>
+</apex:page>

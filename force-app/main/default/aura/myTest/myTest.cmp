@@ -1,0 +1,19 @@
+<aura:component controller="accountCount" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningquickactionwithoutheader" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.onLoad}" />
+    <aura:attribute type="String" name="count"/>
+    
+    <aura:registerEvent name="myTestEvent1" type="c:myTestEvent"/>    
+
+    <lightning:card footer="{!'count is '+v.count}" title="Hello">
+        <lightning:badge name="Account Name"/>
+        <lightning:input />
+
+        <p class="slds-p-horizontal_small">
+           {!v.count} is the account count
+        </p>
+        <lightning:button onclick="{!c.createAccount}" Label="Create Account"/>
+        <lightning:button onclick="{!c.fireEvent}" label="fire event"/>
+    </lightning:card>
+    
+
+</aura:component>

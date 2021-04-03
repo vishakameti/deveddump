@@ -1,0 +1,189 @@
+<apex:page sidebar="false" showHeader="false" controller="recallmain"  lightningStylesheets="true" standardStylesheets="false">
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Salesforce Lightning Design System Trailhead Module</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Import the Design System style sheet -->
+  <apex:slds />
+</head>
+<body style="padding:0 0 0 2%">
+
+  <!-- REQUIRED SLDS WRAPPER -->
+  <div class="slds-scope">
+
+
+    <!-- MASTHEAD -->
+    <p class="slds-text-heading--label slds-m-bottom--small">
+      
+    </p>
+    <!-- / MASTHEAD -->
+
+    <!-- PAGE HEADER -->
+    <!-- PAGE HEADER -->
+<div class="slds-page-header" >
+
+  <!-- LAYOUT GRID -->
+  <div class="slds-grid">
+
+    <!-- GRID COL -->
+      <apex:image url="{!$Resource.logo1}"/>
+    <div style="margin:0 0 0 28%" class="slds-col slds-has-flexi-truncate">
+      <!-- HEADING AREA -->
+      
+      <p class="slds-text-title--caps slds-line-height--reset">Fleet</p>
+      <h1  class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="My Contacts">Recall - Rapid Response Inquiry</h1>
+
+  
+
+      <!-- / HEADING AREA -->
+    </div>
+
+ 
+    <!-- ACTION BUTTONS -->
+<div class="slds-col slds-no-flex slds-grid slds-align-top">
+  <div class="slds-button-group" role="group">
+    <button class="slds-button slds-button--neutral">
+      Help?
+    </button>
+    <button class="slds-button slds-button--neutral">
+      More
+    </button>
+  </div>
+</div>
+<!-- / ACTION BUTTONS -->
+
+    <!-- / ACTION BUTTONS -->
+
+  </div>
+  <!-- / LAYOUT GRID -->
+
+  <!-- PAGE HEADER DETAIL ROW -->
+  <!-- / PAGE HEADER DETAIL ROW -->
+
+</div>
+<!-- / PAGE HEADER -->
+
+    <!-- / PAGE HEADER -->
+
+      <p style="margin:1% 0 0 0">Fleet customers may determine open Recalls and Rapid Responses on a specific vehicle or list of vehicles.</p>
+    <!-- PRIMARY CONTENT WRAPPER -->
+    <div class="myapp slds-p-horizontal--medium">
+      <ul id="contact-list" class="slds-has-dividers--bottom-space"></ul>
+    </div>
+    <!-- / PRIMARY CONTENT WRAPPER -->
+
+    <!-- FOOTER -->
+    <!-- / FOOTER -->
+
+  </div>
+  <!-- / REQUIRED SLDS WRAPPER -->    
+
+  <!-- JAVASCRIPT -->
+  <!-- / JAVASCRIPT -->
+
+
+
+
+<br>
+
+<fieldset class="slds-form-element">
+<h1 style="font-size:120%"> <strong> 1. Upload a text(.txt) file to attain Recall and Rapid Response Status on a list of VINs. </strong> </h1>
+<div class="slds-form-element__control">
+<span class="slds-radio">
+<input type="radio" id="radio-3" name="options" value="on"  checked="checked"/>
+<label class="slds-radio__label" for="radio-3">
+<span class="slds-radio_faux"></span>
+<span class="slds-form-element__label"> <strong> Search by Vehicle List:</strong> File must include the full, 17-digit VIN</span>
+</label>
+</span>
+<div class="slds-form-element">
+
+<div class="slds-form-element__control"  style="margin:0 0 0 2%">
+<div class="slds-file-selector slds-file-selector_files">
+<div class="slds-file-selector__dropzone">
+<input  type="file" value="{!contentFile}" class="slds-file-selector__input slds-assistive-text" accept="txt" id="file-upload-input-01" aria-labelledby="file-selector-primary-label file-selector-secondary-label" /> 
+<!-- <apex:inputFile value="{!contentFile}">  </apex:inputFile> -->
+<label class="slds-file-selector__body" for="file-upload-input-01" id="file-selector-secondary-label">
+<span class="slds-file-selector__button slds-button slds-button_neutral">
+<svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload" />
+</svg >Upload Files</span>
+
+</label>
+</div>
+</div>
+</div>
+</div>
+<br></br>
+<h1 style="font-size:120%"> <strong> 2. Vehicle Search </strong></h1>
+<span class="slds-radio">
+<input type="radio" id="radio-4" name="options" value="on" />
+<label class="slds-radio__label" for="radio-4">
+<span class="slds-radio_faux"></span>
+<span class="slds-form-element__label"><strong>Enter last 8 of VIN for up to 10 vehicles separated by comma    (Example: 1N519447,1N519448)</strong></span>
+</label>
+</span>
+
+
+</div>
+</fieldset>
+
+</br>
+<apex:form >
+
+  <div class="slds-form-element">
+<div class="slds-form-element__control">
+<apex:inputtext style="width:60%;margin:0 0 0 2%" value="{!Vinlist}" styleclass="slds-input" html-placeholder="Enter Vehicle Identication Numbers"/>
+<!-- <input style="width:60%;margin:0 0 0 2%" type="text" id="text-input-id-1"  value="{!Vinlist}" class="slds-input" placeholder="Enter Vehicle Identification Number" /> -->
+</div>
+</div>
+<br> </br>
+<h1 style="font-size:120%"> <strong> 3. View Request Status </strong></h1>
+<span class="slds-radio">
+<input type="radio" id="radio-4" name="options" value="on" />
+<label class="slds-radio__label" for="radio-4">
+<span class="slds-radio_faux"></span>
+<span class="slds-form-element__label"><strong>Enter email addresses seperated by a comma - maximum of 150 characters(Example: abc@chrysler.com, def@chrysler.com) <br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Request status result for given email addresses will be shown on screen: </strong>
+
+<br></br> <br></br>
+<apex:inputtext style="width:100%;margin:0 0 0 2%"  styleclass="slds-input" html-placeholder="Enter email addresses"/>
+</span>
+</label>
+</span>
+<br>
+<br>
+<!--
+<button class="slds-button slds-button--neutral slds-not-selected" aria-live="assertive" onclick="{!GoToPage2}" >
+  <span class="slds-text-not-selected">
+    <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
+      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+    </svg>Follow</span>
+  <span class="slds-text-selected">
+    <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
+      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+    </svg>Following</span>
+  <span class="slds-text-selected-focus">
+    <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
+      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+    </svg>Unfollow</span>
+</button>
+-->
+<br></br><br></br><br></br>
+<div style="Margin:0 0 0% 35%">
+<apex:commandButton styleclass="slds-button slds-button--neutral slds-not-selected" style="width:10%"  value=" Clear "/>
+&nbsp;&nbsp;
+<apex:commandButton styleclass="slds-button slds-button--neutral slds-not-selected" style="width:10%"  value="Submit" action="{!GoToPage2}"/>
+&nbsp;&nbsp;
+<apex:commandButton styleclass="slds-button slds-button--neutral slds-not-selected" style="width:20%"  value="View Request Status" />
+</div>
+
+</br>
+</br>
+</apex:form>
+</body>
+</html>
+</apex:page>

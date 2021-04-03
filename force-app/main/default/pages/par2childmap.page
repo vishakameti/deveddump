@@ -1,0 +1,23 @@
+<apex:page controller="par2childmap_ctrl" >
+
+
+  <apex:form >
+    <apex:pageblock >
+      <apex:pageblocktable value="{!accmap}" var="a" >
+
+               <apex:column >  
+
+                  <apex:pageblocktable value="{!accmap[a]}" var="d">
+
+
+                                    <apex:column value="{!d.name}"/>
+                  <apex:column value="{!d.phone}"/>
+                  </apex:pageblocktable>
+               </apex:column>
+
+            
+      </apex:pageblocktable>
+    </apex:pageblock>
+  </apex:form>
+
+</apex:page>

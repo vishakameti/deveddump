@@ -1,0 +1,27 @@
+<apex:page controller="acccons" >
+
+<script> 
+function check(desc){
+alert('vishak'+desc);
+} </script>
+
+  <apex:form >
+    <apex:pageblock >
+      <apex:pageblocktable onclick="check('vis')" value="{!accmap}" var="a" >
+       <apex:column value="{!a.name}"/>
+               <apex:column title="Contacts tagged to this account">  
+
+                  <apex:pageblocktable value="{!accmap[a]}" var="d">
+
+
+                                    <apex:column value="{!d.name}"/>
+                  <apex:column value="{!d.phone}"/>
+                  </apex:pageblocktable>
+               </apex:column>
+
+            
+      </apex:pageblocktable>
+    </apex:pageblock>
+  </apex:form>
+
+</apex:page>

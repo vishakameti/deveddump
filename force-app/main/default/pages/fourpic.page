@@ -1,0 +1,43 @@
+<apex:page controller="fourpic">
+
+ 
+<apex:pageBlock title="Saimurali Wife Finder" >
+
+
+<apex:form >
+  <apex:inputtext value="{!ip}"> </apex:inputtext>
+  <apex:commandbutton action="{!process}" value="submit"> </apex:commandbutton>
+</apex:form>
+
+<br>
+Your Future Wife is  {!allstring}
+</br>
+</apex:pageBlock>
+
+   <br>
+  </br>
+<!--
+<apex:pageblock >
+    <apex:pageblocktable value="{!namelist}"  var="a">
+    
+     <apex:column value="{!a}" />
+          <apex:column value="{!namelist[a]}" />
+       
+           
+    </apex:pageblocktable> 
+
+
+
+       
+</apex:pageblock>
+
+
+
+
+-->
+
+
+
+
+
+</apex:page>

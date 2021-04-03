@@ -1,0 +1,9 @@
+<apex:page controller="MultiselectController">
+{!s}
+  <apex:form >
+    <apex:selectList value="{!value}" size="1" multiselect="false" label="blah" id="detail" >
+        <apex:selectOptions value="{!options}" />
+    </apex:selectList>
+    <apex:commandButton action="{!expand}" value="expand" />
+  </apex:form>
+</apex:page>

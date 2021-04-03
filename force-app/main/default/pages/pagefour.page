@@ -1,0 +1,52 @@
+<apex:page controller="page_thrctrl" sidebar="true">
+    <apex:form >
+         <apex:commandButton value="acc" action="{!acc}"/>
+         <apex:commandButton value="Contacts" action="{!con}"/>
+         <apex:commandButton value="Opp" action="{!opp}"/>
+                <apex:commandButton value="clear all" action="{!clear}"/>        
+         <apex:pageBlock rendered="{!acc}" >
+
+          <apex:inputField value="{!acc1.industry}" rendered="{!acc}">  
+          
+              <apex:actionSupport event="onchange" action="{!get}" />
+              
+          </apex:inputfield>
+        <apex:commandButton value="Get" action="{!get}"/>
+                <apex:commandButton value="clear all" action="{!clear}"/>
+        <apex:pageblocktable value="{!acclist}" var="a">
+
+                                
+            <apex:column value="{!a.name}"/> 
+            <apex:column value="{!a.phone}"/>
+            <apex:column value="{!a.industry}"/> 
+
+    </apex:pageblocktable>
+  </apex:pageBlock>
+  
+  <apex:pageBlock rendered="{!acc}" >
+      
+        <apex:pageblocktable value="{!acclist1}" var="b">
+
+                     
+            <apex:column value="{!b.name}"/> 
+            <apex:column value="{!b.phone}"/>
+            <apex:column value="{!b.industry}"/> 
+
+    </apex:pageblocktable>
+  </apex:pageBlock>
+
+    <apex:pageBlock rendered="{!con}">
+        <apex:pageblocktable value="{!conlist}" var="b">
+<!--            <apex:column value="{!b.name}"/> -->
+            <apex:column value="{!b.phone}"/>
+    </apex:pageblocktable>
+  </apex:pageBlock>
+ <!-- <apex:pageBlock rendered="{!opp}">
+        <apex:pageblocktable value="{!opplist}" var="c">
+            <apex:column value="{!c.name}"/> 
+            <apex:column value="{!c.amount}"/>
+            <apex:column value="{!c.type}"/>
+    </apex:pageblocktable>
+  </apex:pageBlock> -->
+    </apex:form>
+</apex:page>

@@ -1,0 +1,12 @@
+<apex:page controller="calculatorServicesuse" >
+  
+  
+  
+  <apex:form >
+   Enter Number one <apex:inputText value="{!num1}" /> 
+   Enter Number two <apex:inputText value="{!num2}"/>
+   
+   <apex:commandButton value="result" action="{!doAdd}"/>
+   result is <apex:outputText value="{!num3}"> </apex:outputtext>
+  </apex:form>
+</apex:page>

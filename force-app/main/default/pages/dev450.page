@@ -1,0 +1,18 @@
+<apex:page controller="testController">
+
+    <style type="text/css">
+
+        p { font-weight: bold;
+                        }
+                        
+        <script>
+        var stringvalue = '{!Teststring}';
+        </script>  
+
+    </style>
+
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1 align="right">Hello</h1>
+    
+  <p style="margin:100px 0px 0 500px;font-size:10px; font-style:"> this is a para </p>  
+</apex:page>

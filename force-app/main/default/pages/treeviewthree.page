@@ -1,0 +1,257 @@
+<apex:page controller="treeviewthree"  id="pg" >
+
+   <apex:outputpanel id="abc">
+    {!vipGroups.Grid_Level__c}  
+    
+    </apex:outputpanel> 
+    <script type='text/javascript' src= '//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'>
+        </script>
+        
+        <script language="javascript">
+            $(function() {        
+                $('select.RemoveNoneValue option[value=]').remove();       
+            });
+        </script> 
+
+<style> 
+        .sign-class{ 
+            font-size: 12px; 
+            font-weight: 700; 
+            padding: 0px 5px; 
+            margin-right: 10px; 
+            border: 1px solid black; 
+            background: black; 
+            color: whitesmoke; 
+            margin-bottom:10px; 
+            cursor:pointer; 
+        } 
+        .pbBody table.list tr.dataRow td { 
+            font-family: verdana; 
+            font-weight: normal; 
+        }  
+         .waitingSearchDiv {
+            background-color: #fbfbfb;
+            height: 100%;
+            opacity: 0.65;
+            filter: alpha(opacity = 60); 
+            width: 100%;
+        }         
+    </style> 
+       
+<apex:form id="frm">
+
+<apex:pageblock >
+        <apex:pageMessages />
+        <apex:pageblockSection >
+           <apex:inputfield styleClass="RemoveNoneValue" value="{!vipGroups.Grid_Level__c}"  > 
+   <!--         <apex:actionSupport event="onchange" reRender="pb1" /> -->
+           </apex:inputField>
+        </apex:pageblockSection>
+</apex:pageblock>
+
+    <apex:pageBlock id="pb1" title="List of Body Model Groups">
+
+        
+            <div style="position: relative;">
+
+            <apex:variable value="{!0}" var="modelyearindex" />        
+        <apex:pageblocktable value="{!programYeardata}" var="c" id="modelyearTable">
+
+            <apex:column headerValue="Model Year">
+                <apex:facet name="header">
+                    </apex:facet>
+
+
+
+                    <input type="checkbox" id="yearbox-{!modelyearindex}"  onclick="yearSelected(this);"  />
+
+
+                <span id="modelyear-sign-{!modelyearindex}" class="sign-class" onclick="togglemodelyearTable('{!modelyearindex}');">+</span> 
+                                      
+                    <span style="color: #000;font-size: 11px;font-family:verdana;font-weight: bold;">                                      
+                        {!c} 
+                    </span> 
+                
+                <apex:variable value="{!0}" var="brandindex" />
+                <apex:pageBlockTable value="{!programYear[c]}" var="d"  style="display:none;margin-top:10px;margin-left:20px;width:98%;" id="brandTable">
+                    
+                    <apex:column headerValue="Brand" >
+                        <apex:facet name="header">
+                            <span style="color: #000;font-size: 11px;font-family:verdana;font-weight: bold;"> 
+                                    Brand 
+                                </span>
+                    </apex:facet>
+                            <input type="checkbox" class="brandboxes-{!modelyearindex}" id="brandbox-{!modelyearindex}-{!brandindex}" onclick="brandselected(this,'{!modelyearindex}','{!brandindex}');"/>
+                        <span id="brand-sign-{!modelyearindex}-{!brandindex}" class="sign-class" onclick="toggleBrandsTable('{!modelyearindex}','{!brandindex}');">+</span> 
+                            <span style="color: #000;font-size: 11px;font-family:verdana;font-weight: bold;"> 
+                                {!d} 
+                            </span>
+       
+                        <apex:variable value="{!0}" var="groupindex" />
+                        <apex:pageBlockTable value="{!programYear[c][d]}" var="e" style="display:none;margin-top:10px;margin-left:20px;width:98%;" id="groupTable">
+                            
+                            <apex:column headerValue="Groups">
+                                <apex:facet name="header"> 
+                                <span style="color: #000;font-size: 11px;font-family:verdana;font-weight: bold;"> 
+                                    Group Name 
+                                </span>     
+                            </apex:facet> 
+                                  <apex:inputcheckbox html-data-id="groupbox-{!modelyearindex}-{!brandindex}-{!groupindex}" html-data-exl="{!e.group1.exclusion_flag__c}" styleclass="groupbox-{!modelyearindex}-{!brandindex}" value="{!e.selected}" onclick="groupselected(this,'{!modelyearindex}','{!brandindex}','{!groupindex}');"/>
+                         <!--       <input type="checkbox" class="groupbox-{!modelyearindex}-{!brandindex}" id="groupbox-{!modelyearindex}-{!brandindex}-{!groupindex}" value="{!e.selected}" onclick="groupselected(this,'{!modelyearindex}','{!brandindex}','{!groupindex}');"/> -->
+                                <span id="group-sign-{!modelyearindex}-{!brandindex}-{!groupindex}" class="sign-class" onclick="toggleGroupsTable('{!modelyearindex}','{!brandindex}','{!groupindex}');">+</span> 
+                            <span style="color: #000;font-size: 11px;font-family:verdana;font-weight: bold;"> 
+
+                                {!e.group1.name} 
+                            </span> 
+                                
+                            
+                            
+                            <apex:pageBlockTable value="{!programYear[c][d][e]}" var="f" style="display:none;margin-top:10px;margin-left:20px;width:98%;" id="bodyModel">
+                                
+                                <apex:column value="{!f.name}"  headerValue="Body Model"/>
+                                <apex:column value="{!f.Cpos_code__c}"  headerValue="CPOS "/>
+                                <apex:column value="{!f.body_model_code__c}" headerValue="Body Model Code"/>
+                                
+                            </apex:pageBlockTable>
+                            <apex:variable value="{!groupindex+1}" var="groupindex" />
+                            </apex:column>
+                        </apex:pageBlockTable>
+                        <apex:variable value="{!brandindex+1}" var="brandindex" />
+                    </apex:column>
+                </apex:pageBlockTable>
+                <apex:variable value="{!modelyearindex+1}" var="modelyearindex" />
+            </apex:column>
+            
+        </apex:pageblocktable>
+                </div>
+                <apex:commandButton value="submit"   action="{!summaryPage}" />
+                <apex:commandButton value="test" rerender="abc"/>
+    </apex:pageBlock>
+    </apex:form>
+                <script>
+                    
+                    
+                    
+                    
+                    function togglemodelyearTable(index){ 
+                    var signtext = $("#modelyear-sign-"+index).text(); 
+                    var tableId = 'pg:frm:pb1:modelyearTable:'+index+':brandTable'; 
+                    if(signtext == '+'){ 
+                        $("#modelyear-sign-"+index).text('-').css("padding", " 0px 7px"); 
+                        $(esc(tableId)).show(); 
+                    } 
+                    else{ 
+                        $("#modelyear-sign-"+index).text('+').css("padding", " 0px 5px"); 
+                        $(esc(tableId)).hide(); 
+                    } 
+                } 
+                
+                function toggleBrandsTable(rootindex, parentindex){ 
+                    var signtext = $("#brand-sign-"+rootindex+"-"+parentindex).text(); 
+                    var tableId = 'pg:frm:pb1:modelyearTable:'+rootindex+':brandTable:'+parentindex+':groupTable'; 
+                    if(signtext == '+'){ 
+                        $("#brand-sign-"+rootindex+"-"+parentindex).text('-').css("padding", " 0px 7px"); 
+                        $(esc(tableId)).show(); 
+                    } 
+                    else{ 
+                        $("#brand-sign-"+rootindex+"-"+parentindex).text('+').css("padding", " 0px 5px"); 
+                        $(esc(tableId)).hide(); 
+                    } 
+                } 
+    
+    function toggleGroupsTable(rootindex, parentindex, childindex){ 
+        var signtext = $("#group-sign-"+rootindex+"-"+parentindex+"-"+childindex).text();
+        var tableId = 'pg:frm:pb1:modelyearTable:'+rootindex+':brandTable:'+parentindex+':groupTable:'+childindex+':bodyModel'; 
+        if(signtext == '+'){ 
+            $("#group-sign-"+rootindex+"-"+parentindex+"-"+childindex).text('-').css("padding", " 0px 7px"); 
+            $(esc(tableId)).show(); 
+        } 
+        else{ 
+            $("#group-sign-"+rootindex+"-"+parentindex+"-"+childindex).text('+').css("padding", " 0px 5px"); 
+            $(esc(tableId)).hide(); 
+        } 
+    }
+    function esc(myid) { 
+        return '#' + myid.replace(/(:|\.)/g,'\\\$1'); 
+    } 
+    
+    function yearSelected(year)
+    {
+        yearId = $(year).attr("id");
+        var sample = yearId.split('-');
+        yearIndex = sample[1]; 
+        var count = $('.'+'brandboxes'+'-'+yearIndex).length;
+        console.log('count:'+count);
+        if($('#'+yearId).prop("checked")==true)
+        {
+             var groupInd = 'groupbox-'+yearIndex;
+             console.log('groupInd'+groupInd);
+             $('.'+'brandboxes-'+yearIndex).prop('checked',true);
+
+             $('[class^="'+groupInd+'"]').prop('checked',true);
+             $('[data-exl="Y"]').prop('checked',false);
+
+        }
+        else
+        {
+                var groupInd = 'groupbox-'+yearIndex;
+                 $('.'+'brandboxes-'+yearIndex).prop('checked',false);
+                 $('[class^="'+groupInd+'"]').prop('checked',false);
+        }
+    }
+    
+    function brandselected(brand,yearindex,brandindex)
+    {
+        brandId=$(brand).attr('id');
+        brandclass=$(brand).attr('class');
+        groupclass= '.'+'groupbox-'+yearindex+'-'+brandindex;
+
+        if($('#'+brandId).prop('checked')==true)
+        {
+            
+            $('.'+'groupbox-'+yearindex+'-'+brandindex).prop('checked',true);  
+            if($('.'+brandclass+':checked').length == $('.'+brandclass+'').length){
+                $('#'+'yearbox-'+yearindex).prop('checked',true);
+            }
+            $('.'+groupclass+':checked').filter('[data-exl="Y"]').prop('checked',false);
+            
+        }
+        else
+        {
+            $('#'+'yearbox-'+yearindex).prop('checked',false); 
+            $('.'+'groupbox-'+yearindex+'-'+brandindex).prop('checked',false);
+            
+        }
+        
+    }
+    function groupselected(group,yearindex,brandindex,groupindex)
+    {
+        groupId=$(group).attr('data-id');
+        groupclass=$(group).attr('class');
+        var brandclass ='brandboxes-'+yearindex;
+        if($('[data-id="'+groupId+'"]').prop('checked')==true)
+        { 
+        
+               
+            if($('.'+groupclass+':checked').filter('[data-exl="N"]').length == $('.'+groupclass+'').filter('[data-exl="N"]').length){
+                $('#'+'brandbox-'+yearindex+'-'+brandindex).prop('checked',true);
+            }
+            
+            if($('.'+brandclass+':checked').length == $('.'+brandclass+'').length){
+                $('#'+'yearbox-'+yearindex).prop('checked',true);
+            }
+            
+        }
+        else
+        {
+           if($('[data-id="'+groupId+'"]').filter('[data-exl="N"]').prop('checked')==false){
+            $('#'+'yearbox-'+yearindex).prop('checked',false); 
+            $('#'+'brandbox-'+yearindex+'-'+brandindex).prop('checked',false);
+            }
+        }
+        
+    }
+    
+    </script>
+    
+</apex:page>

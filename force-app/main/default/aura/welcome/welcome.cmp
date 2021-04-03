@@ -1,0 +1,6 @@
+<aura:component >
+    <aura:attribute name="vishak1" type="String"/>  
+    v > view
+    <lightning:button value="{!c.myAction}" name="my button"/>
+    {!v.vishak1}
+</aura:component>

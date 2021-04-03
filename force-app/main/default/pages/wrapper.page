@@ -1,0 +1,21 @@
+<apex:page controller="wrapper_ctrl" >
+ 
+
+ 
+    <apex:form >
+    <apex:pageBlock >
+    
+    <apex:pageBlockTable value="{!accwrap}" var="a">
+       <apex:column headerValue="Checkbox">
+        <apex:inputCheckbox value="{!a.selected}"/>
+
+       </apex:column>
+       
+       <apex:column headerValue="Account name" >
+               <apex:outputField value="{!a.acc.name}"/>
+       </apex:column>
+    </apex:pageBlockTable>
+    </apex:pageBlock>
+    </apex:form>
+ 
+</apex:page>

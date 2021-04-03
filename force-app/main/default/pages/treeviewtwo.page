@@ -1,0 +1,43 @@
+<apex:page controller="treeviewtwo" >
+
+<apex:pageBlock >
+
+<!--
+<apex:pageblocktable value="{!Groups}" var="a">
+<apex:column ><apex:outputfield value="{!a.name}"/> 
+<apex:pageblockTable value="{!a}" var="b" > <apex:column value="{!b.name}" /> </apex:pageblockTable>
+</apex:column>
+
+</apex:pageblocktable>      
+
+-->
+
+  <apex:pageblocktable value="{!Maplist}" var="c">
+  
+ <apex:column headerValue="Group">
+ <button style="font-size:20px;font-weight:bold;background-color:black;color:black "  onclick="hideContent()">+</button>
+ <apex:outputText style="font-weight:bold;font-size:15px" value="{!c}"/>
+ 
+ <div id="content">
+ <apex:pageBlockTable value="{!Maplist[c]}" var="d"  >
+   <apex:column />
+   <apex:column value="{!d.name}"  headerValue="Body Model"/>
+   <apex:column value="{!d.Cpos_code__c}"  headerValue="CPOS "/>
+   <apex:column value="{!d.body_model_code__c}" headerValue="Body Model Code"/>
+ </apex:pageBlockTable>
+ </div>
+ </apex:column>
+ </apex:pageblocktable>
+
+</apex:pageBlock>
+<script>
+        function hideContent(){
+        var x = document.getElementById("content");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+    }
+    </script>
+</apex:page>

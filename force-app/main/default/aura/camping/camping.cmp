@@ -1,0 +1,15 @@
+<aura:component >
+
+    <aura:attribute name = "message" type="string" required="true" />
+    <aura:attribute name = "age" type="string" required="true" />
+    <!--<aura:attribute name = "age" type="number" required="true" /> -->
+    <p> Hello {!v.message} , are you  years {!v.age} years old</p>
+    <p> {!'hello!' + v.message + 'are you' + v.age + 'years old'</p>
+    <p>{!'Hello! ' + v.message + 'are you ' + v.age + ' years old'}</p>
+    
+    <aura:attribute name="messages" type="list" default="['You Look nice today','Great weather we\'re having']"/>
+    
+    
+    <c:campingHeader />
+    <c:campingList />
+</aura:component>

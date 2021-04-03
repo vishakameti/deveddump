@@ -1,0 +1,24 @@
+<aura:component controller="getAccountList" implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:registerEvent name="accEvent" type="c:accountEvent"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doget}"/>
+    
+    
+    <aura:attribute name="accList" type="account[]"/>
+    <aura:attribute name="fields" type="String[]" default="['Name','AnnualRevenue','Industry']" />
+    <aura:attribute name="mode" type="string" default="readonly"/>
+    <aura:iteration items="{!v.accList}" var="acc">        
+        <lightning:card footer="Card Footer" title="Hello">
+            <aura:set attribute="actions">
+                <lightning:button label="Toggle Mode" onclick="{!c.changemode}"/>
+            </aura:set>
+            <lightning:recordForm
+                                  recordId = "{!acc.Id}"
+                                  objectApiName = "Account"
+                                  LayoutType = "phone"
+                                  fields="{!v.fields}"
+                                  columns = "2"
+                                  mode="{!v.mode}"/>
+            
+        </lightning:card>        
+    </aura:iteration>
+</aura:component>

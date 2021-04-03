@@ -1,0 +1,25 @@
+<apex:page standardController="account" extensions="myControllerExtension,myControllerExtension1">
+
+{!greeting}
+
+<apex:pageblock title="Account Summary">
+                                                
+   <apex:pageblocksection >
+   Name: {! Account.Name } <br/>
+   Phone: {! Account.accountNumber } <br/>
+
+  
+   </apex:pageblocksection>
+        <apex:form > 
+             
+          Account name: <apex:inputfield value="{!account.name}"/> <br> 
+                    Account NUMBER: <apex:inputfield value="{!account.accountnumber}"/>  
+          
+          
+          <apex:commandButton action="{!save}" value="Save"/> </br>
+
+        </apex:form>
+
+</apex:pageblock>
+ 
+</apex:page>

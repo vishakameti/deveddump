@@ -1,0 +1,25 @@
+<apex:page standardController="opportunity">
+
+<apex:form >
+       <apex:pageBlock >
+       
+        
+<apex:pageMessages />
+           <apex:pageBlockSection >
+           
+                
+                <apex:inputField value="{!opportunity.name}"/>
+                <apex:outputField value="{!opportunity.amount}"/>
+                <apex:outputlink value="{! URLFOR($Action.opportunity.delete, opportunity.Id) }">
+                
+                edit
+                
+                </apex:outputlink>
+                <apex:outputField value="{!opportunity.closedate}"/>
+                <apex:outputField value="{!opportunity.account.name}"/>
+                <apex:commandButton action="{!save}" value="save"/>
+           </apex:pageBlockSection>
+       
+       </apex:pageBlock>
+</apex:form>
+</apex:page>

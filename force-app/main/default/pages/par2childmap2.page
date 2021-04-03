@@ -1,0 +1,36 @@
+<apex:page controller="par2childmap2_ctrl">
+
+
+
+  <apex:form >
+    <apex:pageblock >
+      <apex:pageblocktable value="{!conmap}" var="a" >
+
+
+               <apex:column value="{!a}"/>
+               
+               <apex:column >  
+
+                  <apex:pageblocktable value="{!conmap[a]}" var="d">
+
+
+                                    <apex:column headervalue="Case number">
+                                    
+                                    <apex:commandLink value="{!d.casenumber}" action="{!getcase}" target="_blank">
+
+                                    <apex:param name="conid" assignto="{!conid}" value="{!d.id}"/>
+
+                                    </apex:commandlink>
+                                    </apex:column>
+
+
+                  </apex:pageblocktable>
+               </apex:column>
+
+            
+      </apex:pageblocktable>
+    </apex:pageblock>
+  </apex:form>
+
+
+</apex:page>

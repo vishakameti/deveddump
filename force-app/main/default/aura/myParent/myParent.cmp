@@ -1,0 +1,11 @@
+<aura:component  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningquickactionwithoutheader" access="global">
+    <aura:registerEvent name = "AppEve" type="c:AppEvent1"/>
+    <aura:handler name = "myTestEvent1" event="c:myTestEvent" action="{!c.handleCompEve}"/>
+    <aura:attribute name="myMes" type="String"/>
+    <Lightning:Card title="Component Event test">
+        <c:myTest/>
+        Data from child is : {!v.myMes}
+        <lightning:button label="fire parent" onclick="{!c.fire1}"/>
+        <lightning:overlayLibrary/>
+    </Lightning:Card>
+</aura:component>

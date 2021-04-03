@@ -1,0 +1,63 @@
+<apex:page controller="CanBidHome"  >
+
+    <script>
+    var newWin=null;
+    function openLookupPopup(name, id, accid)
+    {
+        var url="/apex/contactslook?namefield=" + name + "&idfield=" + id + "&accid=" + accid;
+        newWin=window.open(url, 'Popup','height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no');
+        if (window.focus) 
+        {
+            newWin.focus();
+        }
+            
+        return false;
+    }
+                  
+    function closeLookupPopup()
+    {
+       if (null!=newWin)
+       {
+          newWin.close();
+       }  
+    }
+</script>
+
+<apex:pageMessages />
+<apex:form >
+      <apex:pageBlock title="Canada VIP Proposal Creation"  >
+          <apex:pageblockSection >
+             <apex:outputfield value="{!propData.FAN__c}" /> 
+             <apex:outputfield value="{!propData.Account_Name__c}"/>
+             <apex:inputField label="Program year" required="True" value="{!propData.Model_Year__c}" /> 
+             <apex:outputField value="{!propdata.FAN_Type__c}"/>
+        <!--    <apex:inputField label="Prepared For" value="{!propData.Prepared_For__c}" /> -->
+             <apex:inputField label="Total Account Opportunity"  value="{!propData.Comments__c}" />
+             <apex:inputField label="FCA Business Opportunity"  value="{!propData.Comments__c}" />
+ 
+
+
+         <apex:outputPanel style="margin:0 0 0 20%">
+         <apex:outputLabel style="color:#4a4a56;font-weight:bold;font-size:91%" value="Prepared For"/> &nbsp;&nbsp;&nbsp;&nbsp;
+            <apex:inputText title="Click on Lookup Icon to select a contact" value="{!contactName}" id="targetName"   /> 
+
+           <!-- <a href="#" onclick="openLookupPopup('{!$Component.targetName}', '{!$Component.targetId}', '{!accId}'); return false">Lookup</a> -->
+            <img src="/img/s.gif" onclick="openLookupPopup('{!$Component.targetName}', '{!$Component.targetId}', '{!accId}'); return false" class="lookupIcon" onblur="this.className = 'lookupIcon';" onfocus="this.className = 'lookupIconOn';" onmouseout="this.className = 'lookupIcon';this.className = 'lookupIcon';" onmouseover="this.className = 'lookupIconOn';this.className = 'lookupIconOn';" title="Contact Lookup (New Window)"/> 
+            <apex:inputhidden value="{!contactId}" id="targetId" /> 
+         </apex:outputPanel>
+
+
+          </apex:pageblockSection>
+          <br> </br>
+          <div style="width:50%" >
+           <apex:outputLabel escape="false" value="<b>Price Protection</b>"/ > <br> </br>
+                       <apex:inputfield label="Price Protection" value="{!propData.Price_Protection__c}" /> </div>
+        <div align="center" style="padding:3% 0 0 0" >
+                <apex:commandButton style="float:centre"  value="Create VIP Proposal" action="{!createvip}"/>      
+            </div>
+      </apex:pageBlock>
+
+</apex:form>
+
+
+</apex:page>

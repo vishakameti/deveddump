@@ -1,0 +1,21 @@
+<aura:component controller="campcont" access="global" implements="force:appHostable">
+	
+    <aura:attribute name="item" type="Camping_Item__c"/>
+    <aura:handler name="init" value="{!this}" action="{!c.getCMIList}" />
+    <ui:button label="Get Camping Items" press="{!c.getCMIList}"/>
+    
+    <table >
+			<thead>
+				<tr>
+					<th ><span>Camping Item Name</span></th>
+				</tr>
+			</thead>
+			<tbody>
+				<aura:iteration items="{!v.item}" var="cm">
+				<ui:outputText value="{!v.item.Name__c}"/>
+					
+				</aura:iteration>
+			</tbody>
+		</table>
+                    
+</aura:component>

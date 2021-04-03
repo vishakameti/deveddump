@@ -1,0 +1,25 @@
+<apex:page standardController="Account" extensions="customExtension">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection rendered="{!showinput}">
+                <apex:inputField value="{!account.name}" />
+                <apex:inputField value="{!account.phone}" />
+                
+                <center>
+                    <apex:commandButton action="{!save}" value="Save" style="align:center;" />            
+                </center>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection rendered="{!showoutput}">
+                <apex:pageBlockSectionItem >
+                    <apex:outputText > Account Name</apex:outputText>
+                    <apex:outputlink value="/{!Account.id}">{!Account.Name}</apex:outputlink>
+                </apex:pageBlockSectionItem>
+                
+                <apex:outputField value="{!Account.phone}"/>
+
+                    
+
+            </apex:pageBlockSection>
+        </apex:pageBlock>        
+    </apex:form>
+</apex:page>

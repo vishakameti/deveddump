@@ -1,0 +1,23 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute type="boolean" name="showNew"/>
+    <div class="c-container">
+        <lightning:card title ="Find a Boat">                 
+            <lightning:layout horizontalAlign="center" verticalAlign="end" >
+                <lightning:layoutitem padding="horizontal-medium" class="slds-grid_vertical-align-center" >
+                    <lightning:select name="select1" required="true">
+                        <option value="">All Types</option>
+                    </lightning:select>
+                </lightning:layoutitem>
+                <lightning:layoutitem padding="horizontal-medium" class="slds-grid_vertical-align-center" >
+                    <lightning:button variant="brand" label="Search" title="Search action" onclick="{! c.handleSearch }" />
+                </lightning:layoutitem>
+                <lightning:layoutitem padding="horizontal-medium" class="slds-grid_vertical-align-center" >
+                    <aura:If isTrue="{!v.showNew}">
+                        <lightning:button label="New" title="New Boat" onclick="{!c.handleNewboat }"/>
+                    </aura:If>
+                </lightning:layoutitem>
+            </lightning:layout>
+        </lightning:card>
+    </div>
+</aura:component>

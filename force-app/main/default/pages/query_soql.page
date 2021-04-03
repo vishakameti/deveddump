@@ -1,0 +1,29 @@
+<apex:page controller="testController" action="load()">
+           <apex:datatable value="{!acclist}" var="a" style="font-size:50px"> 
+              <apex:column value="{!a.name}"/> 
+              <apex:column > 
+                <apex:dataTable value="{!a.PBUSADD__R}" var="c">
+                 <apex:column value="{!c.Name}"/>
+                   <apex:column value="{!c.Org_Typ__c}">
+                   </apex:column>
+                </apex:dataTable>
+               </apex:column>
+           </apex:datatable>
+           
+           
+           <apex:form >
+      <apex:pageBlock >
+          <apex:pageblockTable value="{!acclist}" var="a">
+           <apex:column value="{!a.Name}"/>
+           <apex:column >
+               <apex:pageBlocktable value="{!a.PBUSADD__r}" var="c"  >
+                 <apex:column value="{!c.Name}"/>
+                                  <apex:column value="{!c.Org_Typ__c}"/>
+               </apex:pageBlocktable>
+             </apex:column>               
+          </apex:pageblockTable>
+      </apex:pageBlock> >
+      
+    </apex:form>
+
+</apex:page>

@@ -1,0 +1,6 @@
+<aura:component controller = "accountCount" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:createAccount" action="{!c.doInit2}"/>
+    <aura:attribute name="mycount" type="integer"/>
+    Account Count : 	{!v.mycount}
+</aura:component>

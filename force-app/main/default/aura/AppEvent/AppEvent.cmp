@@ -1,0 +1,5 @@
+<aura:component  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningquickactionwithoutheader" access="global">
+    <aura:attribute name="Data" type="String"/>
+    <aura:handler event="c:AppEvent1" action="{!c.handleEve}"/>
+    This is from other component {!v.Data}
+</aura:component>

@@ -1,0 +1,8 @@
+<apex:page controller="ParseTestv1" sidebar="false" showHeader="false" >
+   <apex:form >
+       <apex:inputFile value="{!body}" />
+     <apex:inputtextarea cols="40" rows="20" id="result" value="{!parsedText}"/>     
+     <br/>
+     <apex:commandButton value="Parse" action="{!parse}"/>
+   </apex:form>
+</apex:page>

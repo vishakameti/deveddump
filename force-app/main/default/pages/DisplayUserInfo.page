@@ -1,0 +1,18 @@
+<apex:page showHeader="false" SIDEBAR="FALSE">
+
+<apex:form >
+  <pageblock>
+  
+     <pageblocksection >
+         
+         {!$User.FirstName}
+         {!$User.FirstName & ' ' & $User.LastName} 
+         
+         date time is {!today()}
+         
+         <p>{! if( contains('vishak','ameti'),'lastname','firstname')} </p>
+     </pageblocksection>
+  </pageblock>
+
+</apex:form>
+</apex:page>

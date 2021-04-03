@@ -1,0 +1,21 @@
+<apex:page >
+    <apex:includeLightning />
+    
+    <div id="LcDisplayId"></div> 
+    <script>
+    alert('vishak');
+
+    $Lightning.use("c:FA_Summary_App", function() {      
+        $Lightning.createComponent("c:FA_Summary",
+                                   {       
+                                       borderColor : "#16325c", 
+                                       bgColor : "#16325c" ,
+                                       fontColor : "#FFF",
+                                   },
+                                   "LcDisplayId",
+                                   function(component) {
+                                       console.log('Component created');
+                                   });
+    });
+    </script>
+</apex:page>

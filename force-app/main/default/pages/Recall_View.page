@@ -1,0 +1,22 @@
+<apex:page controller="Recalls" SIDEbar="FALSE" showHeader="false" lightningStylesheets="true"  >
+   
+
+<apex:pageBlock title="Vehicle Search Result">
+
+
+  <apex:pageblockTable value="{!reclist}" var="r">
+
+
+    <apex:column value="{!r.VIN_LAST_8__c}"/> 
+      <apex:column value="{!r.VIN_First_9__c}"/> 
+      <apex:column value="{!r.ITEM_CODE__c}"/> 
+      <apex:column value="{!r.FAN__c}"/> 
+      <apex:column value="{!r.Recall__c}"/> 
+      <apex:column value="{!r.desc__c}"/> 
+      <apex:column value="{!r.recall_date__c}"/> 
+      <apex:column value="{!r.DEALER_CODE__c}"/> 
+      <apex:column value="{!r.NAME__c}"/>
+
+  </apex:pageblockTable>
+</apex:pageBlock>
+</apex:page>

@@ -1,0 +1,20 @@
+<apex:page controller="Stringsearch">
+
+
+{!finalstr}
+<apex:form >
+        
+        Enter Mainstring:
+        
+        <apex:inputtext value="{!main}" required="true" />
+        
+         Enter Substring:
+        
+        <apex:inputtext value="{!sub}" required="true" />
+        
+        <apex:commandButton action="{!process}" value="Submit" />
+
+</apex:form>
+
+
+</apex:page>

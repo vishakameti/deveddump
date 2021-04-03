@@ -1,0 +1,46 @@
+<apex:page standardcontroller="CAN_VIP_proposal__c"  extensions="BM_extension" action="{!getSize}" >
+
+
+<apex:form >
+<div align="left">
+
+
+<apex:commandButton value="Add Bodymodels"    />&nbsp;
+          <apex:commandButton value="Update Bodymodel Data"  />&nbsp;
+          <apex:commandButton value="Remove Bodymodels"  />
+
+</div>
+<br>
+<br>
+<apex:outputLabel value="No Records to display" rendered="{!total_size == 0}" />
+</br>
+</br>
+
+
+<apex:pageBlock id="bmlist1" rendered="{!total_size!=0}">
+
+ <apex:pageBlockTable value="{!bmList1}" var="bml">
+  <apex:column > <input type="checkbox"/> </apex:column> 
+
+
+  <apex:column value="{!bml.Body_Model_Code__c}"/>
+
+    <apex:column value="{!bml.Model_Year__c}"/>
+        <apex:column value="{!bml.Brand__c}"/>
+        <apex:column value="{!bml.Incentive_Amount__c}"/> 
+        <apex:column value="{!bml.Status__c}"/> 
+<!--            <apex:column headerValue="Incentive Amount"  > <apex:inputfield value="{!bml.Incentive_Amount__c}"/></apex:column> -->
+
+    
+ </apex:pageBlockTable>
+
+<center>
+<apex:commandButton value="Previous" action="{!previous}" rerender="bmlist1" rendered="{!total_size>10}" disabled ="{!DisablePrevious}" />
+<apex:commandButton value="Next" action="{!next}"  reRender="bmlist1" rendered="{!total_size>10}" disabled ="{!Disablenext}" />
+<apex:commandButton value="Last" action="{!last}" reRender="bmlist1" rendered="{!total_size>10}"/>
+</center>
+</apex:pageBlock>
+
+</apex:form>
+
+</apex:page>

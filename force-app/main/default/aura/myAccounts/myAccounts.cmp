@@ -1,0 +1,8 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >        
+    
+    <aura:attribute name="countofaccs" type="integer" default="0"/>
+    <aura:handler name="accEvent" event="c:accountEvent" action="{!c.onclick}"/>
+    
+    {!v.countofaccs}
+    <c:getaccountList/>            
+</aura:component>

@@ -1,0 +1,28 @@
+<apex:page controller="testDate">
+
+<script type="text/javascript">
+window.onload=function(){
+document.getElementById("divertfocus").focus();
+}
+</script>
+  <h1>Congratulations</h1>
+  <apex:form >
+<apex:pageBlock >
+<apex:pageBlockSection >
+<apex:pageBlockSectionItem >
+<apex:inputField onfocus="this.blur();" value="{!startDate.date__c}"/>
+</apex:pageBlockSectionItem>
+<apex:pageBlockSectionItem >
+<apex:inputField value="{!endDate.date__c}"/>
+</apex:pageBlockSectionItem>
+
+<span id="divertfocus"> </span>
+</apex:pageBlockSection>
+
+<apex:commandButton action="{!testMethod1}" value="Save" />
+</apex:pageBlock>
+
+</apex:form>
+
+
+</apex:page>

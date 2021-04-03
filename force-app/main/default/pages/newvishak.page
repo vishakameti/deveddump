@@ -1,0 +1,8 @@
+<apex:page controller="LoginPages">  
+<script>
+alert('stringvalue'+password);
+</script>
+    <p>
+        vishak 
+    </p>
+</apex:page>

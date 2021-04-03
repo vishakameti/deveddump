@@ -1,0 +1,15 @@
+<apex:page controller="newc2p_Cntrlr">
+   
+    <apex:form >
+      <apex:pageBlock >
+          <apex:pageblockTable value="{!acclist}" var="a">
+           <apex:column value="{!a.id}"/>
+           <apex:column value="{!a.dealer_code__c}"/>
+            <apex:column value="{!a.related__r.DBA_name__c}"/>
+                 
+          </apex:pageblockTable>
+      </apex:pageBlock> >
+      
+    </apex:form>
+    
+</apex:page>

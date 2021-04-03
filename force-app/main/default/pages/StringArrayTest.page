@@ -1,0 +1,7 @@
+<apex:page controller="StringArrayTest1">
+  
+  
+   {!newstr}
+
+  
+</apex:page>

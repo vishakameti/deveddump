@@ -1,0 +1,21 @@
+<apex:page Controller="VisionController">
+  <apex:form >
+  <apex:pageBlock >
+      <apex:image url="https://fthmb.tqn.com/nY28X7Oh3TxoFuZBnmRa4U-1i3s=/960x0/filters:no_upscale()/tiger-692776085-5888ae5d5f9b58bdb386e9af.jpg">
+      </apex:image>
+      <br/>
+      <apex:repeat value="{!AccessToken}" var="accessToken">
+          Access Token:<apex:outputText value="{!accessToken}" /><br/>
+    </apex:repeat>
+      <br/>
+      <apex:repeat value="{!callVisionUrl}" var="prediction">
+          <apex:outputText value="{!prediction.label}" />:<apex:outputText value="{!prediction.probability}" /><br/>
+      </apex:repeat>
+  </apex:pageBlock>
+<!--  <apex:pageBlock > -->
+<!--      <apex:repeat value="{!callVisionContent}" var="prediction"> -->
+<!--          <apex:outputText value="{!prediction.label}" />:<apex:outputText value="{!prediction.probability}" /><br/> -->
+<!--    </apex:repeat> -->
+<!--  </apex:pageBlock> -->
+  </apex:form>
+</apex:page>

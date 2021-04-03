@@ -1,0 +1,19 @@
+<apex:page controller="treeviewthree">
+
+
+<apex:form >
+   <apex:pageblock title="List of selected Groups">
+      <apex:pageblockTable value="{!Selectedgroups1}" var="a">
+      <apex:column headerValue="Model Year" value="{!a.Model_Year__c}"/>
+      <apex:column headerValue="Brand" value="{!a.Brand__c}"/>
+      <apex:column headerValue="Grid Level" value="{!vipGroups.Grid_Level__c}"/>
+      <apex:column headerValue="Group" value="{!a.Group_Name__c}"/>
+      <apex:column headerValue="Incentive Amount">
+      <apex:inputField value="{!a.Incentive_Amount__c}"/>                   
+      </apex:column>
+       
+      </apex:pageblockTable>
+   <apex:commandButton action="{!saveGroups}" value="Save Products" />
+   </apex:pageblock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,18 @@
+<apex:page standardcontroller="PBUS__c" recordSetVar="a" tabStyle="account" extensions="redirect" >
+
+<apex:pageBlock >
+  <apex:pageblockSection title="Pbus data">
+    <apex:pageblockTable value="{!a}" var="b">
+    <apex:column title="Name is" value="{!b.name}"/>
+
+        <apex:column onclick="window.open('/{!b.id}','_blank')" value="{!b.id}"/>
+      
+
+
+    </apex:pageblockTable>
+  </apex:pageblockSection>
+
+</apex:pageBlock>
+
+
+</apex:page>

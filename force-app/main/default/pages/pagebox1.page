@@ -1,0 +1,20 @@
+<apex:page controller="account_custom" standardStylesheets="false" doctype="html-5.0">
+    <apex:form >
+   
+ 
+        
+        <apex:pageBlock title="The Account">
+   <apex:pageBlockSection columns="2">
+    <apex:inputField value="{!acc.Name}"/>
+    <apex:inputField value="{!acc.ShippingState}"/>
+    <apex:inputField value="{!acc.Industry}"/>
+    <apex:outputField value="{!acc.Phone}"/>
+    <apex:outputField value="{!acc.BillingStreet }"/>
+    
+    <apex:commandButton value="save" action="{!save}"/>
+  </apex:pageBlockSection>
+</apex:pageBlock>
+
+  
+  </apex:form>
+</apex:page>

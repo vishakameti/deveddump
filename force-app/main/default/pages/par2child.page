@@ -1,0 +1,15 @@
+<apex:page controller="par2child_ctrl" >
+
+  <apex:form >
+    <apex:pageblock >
+      <apex:pageblocktable value="{!acclist}" var="a" >
+           <apex:column value="{!a.name}"/>
+                                     <apex:column headervalue="Number of Contacts" value="{!a.contacts.size}"/>
+               <apex:column >
+
+             </apex:column> 
+      </apex:pageblocktable>
+    </apex:pageblock>
+  </apex:form>
+
+</apex:page>

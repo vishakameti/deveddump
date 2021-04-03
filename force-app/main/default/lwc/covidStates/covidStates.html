@@ -1,0 +1,147 @@
+<template>
+    <lightning-card title="COVID 19 India Tracker ">
+        <div class="slds-p-around_medium lgc-bg">
+
+            <lightning-tile label="COVID 19-India Stats" type="media">
+                <div style="height:8%;width: 8%; ">
+                    <img src={Indiaicon} />
+                </div>
+
+
+                <dl class="slds-dl_horizontal">
+                    <dt class="slds-dl_horizontal__label">
+                        <p class="slds-truncate" title="Company">Confirmed:</p>
+                    </dt>
+                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate" title="Salesforce">{countrytotal}</p>
+                    </dd>
+                    <dt class="slds-dl_horizontal__label">
+                        <p class="slds-truncate" title="Email">Active:</p>
+                    </dt>
+                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate" title="salesforce-ux@salesforce.com">{countryactive}
+
+                        </p>
+                    </dd>
+
+                    <dt class="slds-dl_horizontal__label">
+                        <p class="slds-truncate" title="Email">Recovered:</p>
+                    </dt>
+                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate" title="">{countryrecovered}</p>
+                    </dd>
+                    <dt class="slds-dl_horizontal__label">
+                        <p class="slds-truncate" title="Email">Deaths:</p>
+                    </dt>
+                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate" title="salesforce-ux@salesforce.com">{countrydeaths}</p>
+                    </dd>
+                    <dt class="slds-dl_horizontal__label">
+                        <p class="slds-truncate" title="Email">New Cases Today:</p>
+                    </dt>
+                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate" title="salesforce-ux@salesforce.com">{newCasestoday}</p>
+                    </dd>
+                </dl>
+
+            </lightning-tile>
+        </div>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered ">
+
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="State Name">State Name</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="COVID-19 Count">Confirmed</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="COVID-19 Count">New Cases Today</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Cases Today">Active Cases</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Cases Today">Recovered</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Cases Today">Deaths</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={jswrapper} for:item="state" for:index='index'>
+
+                    <tr class="slds-line-height_reset" key={state.statename}>
+                        <th scope="col">
+                            <div onclick={handleshow} data-class1={state.statecode}>
+                                {state.statename}
+                                <div class={state.statecode} style="display: none;">
+                                    <div class="slds-popover__header">
+                                        District Wise Data
+                                    </div>
+                                    <div class="slds-popover slds-nubbin_top  " role="tooltip"
+                                        style="position: absolute;">
+                                        <c-covid-dist distdata={state.distdata} key={state.statename}> </c-covid-dist>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </th>
+
+                        <th scope="col">
+                            <div>
+                                {state.statetotal}
+                                <template if:true={state.newcase}>
+                                    <span style="color: coral;font-size:12px;">+{state.statedelta}</span>
+                                </template>
+
+</div>
+</th>
+<th scope="col">
+    <div>
+        {state.statedelta}
+    </div>
+</th>
+<th scope="col">
+    <div>
+        {state.stateactive}
+    </div>
+</th>
+<th scope="col">
+    <div>
+        {state.staterecovered}
+    </div>
+</th>
+<th scope="col">
+    <div>
+        {state.statedeaths}
+        <template if:true={state.newdeath}>
+                                    <span style="color:red;font-size:12px;"> +{state.statedelDeath}</span>
+                                </template>
+
+
+    </div>
+</th>
+<th scope="col" class='.slds-size_small' style="height: 5%;">
+    <div>
+        <lightning-icon class='.slds-size_small' onclick={handleChild} data-dist={state.statename} key={state.statename} title="See district Data" icon-name="action:preview">
+        </lightning-icon>
+    </div>
+
+</th>
+
+
+</tr>
+
+</template>
+</tbody>
+</table>
+
+
+</lightning-card>
+</template>

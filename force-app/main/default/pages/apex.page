@@ -1,0 +1,15 @@
+<apex:page standardController="PBUS__c" recordSetVar="a"  >
+  <!-- Begin Default Content REMOVE THIS -->
+<apex:form >
+       <apex:pageBlock >
+              <apex:pageBlockTable value="{!a}" var="b">
+              <apex:inputField value="{!b.DBA_name__c}"/>
+
+              </apex:pageBlockTable>
+       
+       </apex:pageBlock>
+     
+</apex:form>
+  This is your new Page: apex
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

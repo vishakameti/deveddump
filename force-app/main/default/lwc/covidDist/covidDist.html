@@ -1,0 +1,47 @@
+<template>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered ">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="State Name">District Name</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="COVID-19 Count">Active</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="COVID-19 Count">Deaths</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Cases Today">Recovered</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={distdata} for:item='dist'>
+                <tr class="slds-line-height_reset" key={dist.district}>
+                    <th scope="col">
+                        <div>
+                            {dist.district}
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div>
+                            {dist.active}
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div>
+                            {dist.deceased}
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div>
+                            {dist.recovered}
+                        </div>
+                    </th>
+                </tr>
+            </template>
+</tbody>
+</table>
+
+</template>

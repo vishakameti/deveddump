@@ -1,0 +1,45 @@
+<apex:page controller="pagebox_ctrl" standardStylesheets="false" doctype="html-5.0">
+  <head lang="en">
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+    $("#add3").click(function(){
+        alert("The paragraph was clicked.");
+    });
+});
+</script>
+
+
+
+  <apex:form >
+   
+  enter field one from Account:
+  <apex:inputtext value="{!text1}"/>
+  
+  &nbsp;
+  
+  enter field two from Account:
+  <apex:inputtext value="{!text2}"/>
+  
+    
+   <apex:commandButton value="ADD" reRender="vis" action="{!add}"/>
+       
+   Addition is:
+  <apex:outputText value="{!text3}"/>
+  
+  
+  query result is :
+   <apex:pageblock id="vis"> 
+     <apex:pageblockTable value="{!qlist}" var="a" id="pg1">
+           <apex:column value="{!a.id}"/>
+                      <apex:column value="{!a.name}"/>
+
+                           </apex:pageblockTable>
+     </apex:pageblock>  
+  </apex:form>
+</head>
+</apex:page>

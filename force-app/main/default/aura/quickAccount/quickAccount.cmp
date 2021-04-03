@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+	<aura:attribute name="fields" type="String[]" default="['Name','AnnualRevenue','Industry']" />
+<aura:registerEvent name="createAccount" type="c:createAccount"/>
+    <lightning:recordForm                                  
+                                  objectApiName = "Account"
+                                  LayoutType = "phone"
+                                  fields="{!v.fields}"
+                                  columns = "2"
+                                  onsuccess="{!c.fireEvent}"
+                                  mode="edit"/>
+    
+</aura:component>

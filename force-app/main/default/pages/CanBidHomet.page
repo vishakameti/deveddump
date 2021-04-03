@@ -1,0 +1,17 @@
+<apex:page controller="canbidtest">
+  
+<apex:form >
+
+    
+    <apex:pageblock >
+    
+    <apex:pageblockSection >
+
+
+     <apex:inputField label="Price Protection" value="{!propData.Price_Protection__c}"  style="height:3px" />
+    
+    </apex:pageblockSection>
+      
+    </apex:pageblock>
+</apex:form>
+</apex:page>

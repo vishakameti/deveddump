@@ -1,0 +1,52 @@
+<aura:component controller = "accountCount" implements="force:appHostable,force:hasRecordId,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:attribute name="Acclist" type="Account[]"/>
+    
+
+    <lightning:card title="Accounst List">
+        {!v.Acclist}
+        <div class="slds">
+        <aura:iteration items="{!v.Acclist}" var="acc"  >
+           <tr>  
+                <td> {!acc.Name}  </td>
+
+                <table class="slds-table slds-table--bordered slds-table--striped">
+                    <aura:iteration items="{!acc.Contacts}" var="con" >
+                        <tr>
+                            <td>{!con.LastName}</td>
+                        </tr>
+                    </aura:iteration>
+                </table>
+            </tr> 
+           
+            <!--
+            <lightning:recordEditForm 
+                                      onsuccess="{!c.showToast}" 
+                                      
+                                      recordId="{!acc.Id}" 
+                                      objectApiName="Account">
+                <lightning:messages />
+                <div class="slds-grid">
+                    <lightning:outputField fieldName="Name" class="slds-col slds-size_1-of-2"  >
+                    <aura:iteration items="{!acc.contacts}" var="con">
+                        <li> Name : {!con.LastName}</li> 
+                    </aura:iteration>  
+                    </lightning:outputField>                    
+                      
+                </div>
+                <lightning:button class="slds-m-top_small slds-hide slds-align_absolute-center" 
+                                  variant	="brand" 
+                                  type		="submit" 
+                                  name		="update" 
+                                  label		="Update" aura:id="button2" />         
+            </lightning:recordEditForm>
+-->
+            
+        </aura:iteration>
+            </div> 
+        <lightning:button name="update1" class="slds-hide" label="Update1" aura:id="button21" />
+        
+    </lightning:card>
+    
+</aura:component>

@@ -1,0 +1,66 @@
+<apex:page controller="page_thrctrl" standardStylesheets="false" doctype="html-5.0">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>    
+    
+    <script> 
+         $(document).ready(function(){
+         
+        
+
+         $(".vis").hide();
+                      
+     $("#acc1").click(function(){
+          
+         
+           $(".vis").show();
+        });
+     $("#acc2").click(function(){
+          
+         
+           $(".vis").show();
+        });
+           });
+    </script>
+    <apex:form >
+    
+          <div style="color:black;background-color:grey;height:5%;font-size:25px;margin:5px 0 0 0">   
+          <p align="center" > Click to see Accounts, Contacts, Opportunities </p>
+          </div>
+          <div id="acc1" style="float:left">
+         <apex:commandButton rerender="vish" value="accounts" action="{!acc}"/>
+         </div>
+         <div id="acc2" style="float:left">
+         <apex:commandButton rerender="vish1" value="Contacts" action="{!con}"/>
+         </div>
+         <div id="acc3">
+         <apex:commandButton rerender="vish2" value="Opportunity" action="{!opp}"/>
+         </div>
+<div class= "vis">
+         <apex:pageBlock id="vish">
+        <apex:pageblocktable value="{!acclist}" var="a">
+            <apex:column value="{!a.name}"/>
+            <apex:column value="{!a.phone}"/>
+            <apex:column value="{!a.industry}"/>           
+    </apex:pageblocktable>
+  </apex:pageBlock>
+ </div>
+  
+ <div class="vis">
+  <apex:pageBlock id="vish1" >
+        <apex:pageblocktable value="{!conlist}" var="b">
+            <apex:column value="{!b.name}"/>
+            <apex:column value="{!b.phone}"/>
+    </apex:pageblocktable>
+  </apex:pageBlock>
+ </div>
+ <div class="vis">
+  <apex:pageBlock id="vish2">
+        <apex:pageblocktable value="{!opplist}" var="c">
+            <apex:column value="{!c.name}"/>
+            <apex:column value="{!c.amount}"/>
+            <apex:column value="{!c.type}"/>
+    </apex:pageblocktable>
+  </apex:pageBlock>
+</div>
+    </apex:form>
+</apex:page>

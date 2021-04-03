@@ -1,0 +1,8 @@
+<apex:page controller="LoginPages" >
+
+
+<h1>
+
+  <p style="font-size:25px" > hello {!username}, your password is {!password} </p>
+</h1>
+</apex:page>

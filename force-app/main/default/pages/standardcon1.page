@@ -1,0 +1,3 @@
+<apex:page standardController="PBUS__c">
+ {!PBUS__c.NAME}
+</apex:page>

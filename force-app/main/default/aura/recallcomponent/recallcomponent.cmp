@@ -1,0 +1,40 @@
+<aura:component controller="recallController">
+  <aura:attribute name="recalls" type="List" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <!--
+    Use a data table from the Lightning Design System:
+    https://www.lightningdesignsystem.com/components/data-tables/
+  -->
+  <table class="slds-table slds-table--bordered slds-table--striped slds-table--cell-buffer slds-table--fixed-layout">
+    <thead>
+      <tr class="slds-text-heading--label">
+        <th scope="col"><div class="slds-truncate" title="Name">VIN Last 8</div></th>
+        <th scope="col"><div class="slds-truncate" title="Type">VIN First 9 </div></th>
+        <th scope="col"><div class="slds-truncate" title="Number Of Employees">Item Code</div></th>
+        <th scope="col"><div class="slds-truncate" title="Ticker Symbol">FAN</div></th>
+        <th scope="col"><div class="slds-truncate" title="Phone">Recall#</div></th>
+        <th scope="col"><div class="slds-truncate" title="Delete">Description</div></th>
+        <th scope="col"><div class="slds-truncate" title="Delete">Recall Date</div></th>
+        <th scope="col"><div class="slds-truncate" title="Delete">Dealer Code</div></th>
+        <th scope="col"><div class="slds-truncate" title="Delete">Name</div></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Use the Apex model and controller to fetch server side data -->
+      <aura:iteration items="{!v.recalls}" var="account">
+        <tr>
+          <th scope="row"><div class="slds-truncate" title="VIN_LAST_8__c">{!account.VIN_LAST_8__c}</div></th>
+          <td><div class="slds-truncate" title="VIN_LAST_8__c">{!account.VIN_First_9__c}</div></td>
+          <td><div class="slds-truncate" title="{!account.Type}">{!account.ITEM_CODE__c}</div></td>
+          <td><div class="slds-truncate" title="{!account.NumberOfEmployees}">{!account.FAN__c}</div></td>
+          <td><div class="slds-truncate" title="{!account.TickerSymbol}">{!account.Recall__c}</div></td>
+          <td><div class="slds-truncate" title="{!account.Phone}">{!account.desc__c}</div></td>
+            <td><div class="slds-truncate" title="{!account.Phone}">{!account.recall_date__c}</div></td>
+            <td><div class="slds-truncate" title="{!account.Phone}">{!account.DEALER_CODE__c}</div></td>
+            <td><div class="slds-truncate" title="{!account.Phone}">{!account.NAME__c}</div></td>
+          
+        </tr>
+      </aura:iteration>
+    </tbody>
+  </table>
+</aura:component>

@@ -1,0 +1,10 @@
+<apex:page controller="attachtest">
+
+<apex:form > 
+
+  
+  
+  <apex:commandButton action="{!attachtest2}" value="insert"/>
+ 
+</apex:form>
+</apex:page>

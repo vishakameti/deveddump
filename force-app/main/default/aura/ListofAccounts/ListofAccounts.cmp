@@ -1,0 +1,25 @@
+<aura:component controller="accountCount" implements="force:appHostable,force:hasrecordId,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute type="Account[]" name="AccL"/>
+    <lightning:card title="List of my Accounts"  >
+        
+        <aura:iteration items="{!v.AccL}" var="acc">
+            
+            <lightning:layout>
+                <lightning:layoutItem>
+                    <lightning:input value="{!acc.Name}"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem>
+                    <lightning:input value="{!acc.Phone}"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem>
+                    <lightning:button  onclick="{!c.route}" value="{!acc.Id}">
+                        <lightning:icon iconName="standard:account"></lightning:icon>
+                    </lightning:button>
+                    <lightning:buttonIcon iconName="utility:zoomin" variant="bare" onclick="{!c.route}" value="{!acc.Id}"/> 
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:iteration>
+        <lightning:button title="Update" label="Modify" onclick="{!c.saveAccs}"/>
+    </lightning:card>
+</aura:component>

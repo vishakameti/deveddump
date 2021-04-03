@@ -1,0 +1,76 @@
+<template>
+   <lightning-button label="callout" onclick = {handlecallout}></lightning-button>
+    Hi
+    {mapofstatedistrict1}
+    
+<table class="slds-table slds-table_cell-buffer slds-table_bordered ">
+
+    <thead>
+        <tr class="slds-line-height_reset">
+            <th class="" scope="col">
+                <div class="slds-truncate" title="State Name">State Name</div>
+            </th>
+        </tr>
+        <tr class="slds-line-height_reset">
+            <th class="" scope="col">
+                <div class="slds-truncate" title="State Name">Districts</div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+          
+
+<template for:each={mapofstatedistrict1} for:item="state" for:index='index'>                 
+                <tr class="slds-line-height_reset" key={state.key}>
+                    <th scope="col">
+                        <div>
+                            {state.key}                                 
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div>
+                            <template for:each={state.value} for:index="index1" for:item="dist">
+                               
+                                <tr class="slds-line-height_reset" key={state.key}>
+                                    <th scope="col">
+                                        <div>
+                                            {dist.key}                                
+                                        </div>
+                                    </th>
+                                    <th scope="col">
+                                        <div>
+                                            <template for:each={dist.value} for:index="index2" for:item="count">
+                               
+                                                <tr class="slds-line-height_reset" key={count.key}>
+                                                    <th scope="col">
+                                                        <div>
+                                                            {count.key}                                
+                                                        </div>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <div>
+                                                            {count.value}                                
+                                                        </div>
+                                                    </th>
+                                                    
+                                                  
+                                                </tr>
+                                                </template>
+</div>
+</th>
+
+</tr>
+
+
+
+</template>
+</div>
+</th>
+</tr>
+</template>
+
+
+</tbody>
+</table>
+</template>

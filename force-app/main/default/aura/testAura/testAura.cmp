@@ -1,0 +1,11 @@
+<aura:component controller="getAccountList" >
+    <aura:handler name="init" value="{!this}" action="{!c.doit}"/>
+    <aura:attribute name = "Accs" type="Account[]"/>
+    {!v.Accs}
+    <aura:iteration items = "{!v.Accs}" var = "a">
+        <lightning:formattedText value = "{!a.Name}"/>
+    </aura:iteration>
+    <aura:iteration items="{!v.Accs}" var="accs1" >
+        {!accs1.Name}  
+        
+    </aura:iteration>  </aura:component>

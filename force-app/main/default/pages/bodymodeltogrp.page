@@ -1,0 +1,19 @@
+<apex:page controller="bodymodeltogrp">
+    
+    <apex:pageBlock title="Add BodyModels to Group">
+        
+        <apex:pageBlockSection >
+            <apex:outputfield value="{!modelData.Group__c}"/>
+            <apex:outputfield value="{!groupdata.Model_Year__c}"/>
+            <apex:outputfield title="Grid Level" value="{!groupdata.Grid_Level__c}"/>
+            <apex:outputfield value="{!groupdata.Brand__c}"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+    <apex:pageBlock title="List of body Models available" >
+        
+        
+        
+    </apex:pageBlock>
+    
+</apex:page>

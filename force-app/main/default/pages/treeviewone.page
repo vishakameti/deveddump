@@ -1,0 +1,61 @@
+<apex:page controller="cAccheirarchy" sidebar="true">
+    <apex:form >
+        <style>
+            table.fixed { table-layout:fixed; }
+            table.fixed td { overflow: hidden; }
+            .td_top_border
+            {
+            border-top:1px solid #3388DD;
+            }
+            .td_right_border
+            {
+            border-right: 1px solid #3388DD;
+            }
+        </style>
+        <apex:pageBlock >
+            <table class="fixed" width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="text-align: center;border: 0px;">
+                <tbody>
+                    <tr hight="1px">
+                        <apex:repeat value="{!tdgap1}" var="colforgap">
+                            <apex:outputText ><td ></td></apex:outputText>
+                        </apex:repeat>
+                    </tr>
+                    <tr height="50px" >
+                        <td colspan="17"></td>
+                        <td colspan="16" style="padding-top:13px;font-size:16px;border:1px solid #3388DD;background:#f57402;border-radius: 4px">
+                            <b style="color:white;">{!acc.Name}</b>
+                        </td>
+                        <td colspan="17"></td>
+                    </tr>
+                    <tr >
+                        <td colspan="25" style="border-right: 1px solid #3388DD;" width="50%">&nbsp;</td>
+                        <td colspan="25" >&nbsp;</td>
+                    </tr>
+                    <tr style="height: 12px;" >
+                        <td  colspan="5" style="border-right: 1px solid #3388DD;"></td>
+                        
+                        <apex:variable var="n" value="{!1}"/> 
+                        <apex:repeat value="{!tdborder}" var="bdr">
+                            <td colspan="10" class="{!td_top_border} {!IF((chldacclstsize<3),(IF((chldacclstsize==1),'',IF((chldacclstsize==2),IF((n==1),td_right_border,''),IF((n==2),'','')))),'td_right_border')}"></td>
+                            <apex:variable value="{!n+1}" var="n"/>
+                        </apex:repeat>
+                        
+                        <apex:variable var="count" value="{!1}"/> 
+                        <apex:repeat value="{!trnumber}" var="trnumber">
+                            <tr >
+                                <td></td>
+                                <apex:repeat value="{!chldacclst}" var="chldaccslst" rows="{!y}" first="{!IF((count<=5),0,(CEILING(count/5)*5)-5)}">
+                                    <td colspan="8" height="20px" style="padding-top:10px;text-align: center;border: 1px solid #28518E;background: #7A9CDF;border-radius: 4px">
+                                    <apex:outputLink value="/{!chldaccslst.id}" target="_blank">{!chldaccslst.Name}</apex:outputLink> </td>
+                                    <td colspan="2" ></td>
+                                    <apex:variable value="{!count+1}" var="count"/>
+                                </apex:repeat>
+                            </tr>
+                            <tr height="20px"></tr>                            
+                        </apex:repeat>
+                    </tr>
+                </tbody>
+            </table>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
