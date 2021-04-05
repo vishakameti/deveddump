@@ -29,7 +29,8 @@ public class AddPrimaryContact implements Queueable
         //new comment
     }
    
-    public void mymethod(){
+    public void mymethod2(){
     // new comment2
+    system.debug('vishak');
     }
 }
