@@ -18,5 +18,7 @@ public class acccons {
           
      }
 
-     public void mymethod(){//this is a new method}
+     public void mymethod()
+     {//this is a new method
+     }
 }
