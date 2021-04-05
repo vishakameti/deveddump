@@ -31,5 +31,6 @@ public class AddPrimaryContact implements Queueable
    
     public void mymethod(){
     // new comment2
+    system.debug('vishak');
     }
 }
